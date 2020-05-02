@@ -32,9 +32,9 @@ Lets navigate to to http://httpbin.org/html and http://httpbin.org/anything thro
 ```
 mvn spring-boot:run
 
-curl -X GET "http://localhost:8080/java/html" -H  "accept: text/html"
+curl -X GET "http://localhost:8080/java/html"
 
-curl -X GET "http://localhost:8080/java/anything" -H  "accept: text/html"
+curl -X GET "http://localhost:8080/java/anything"
 ```
 Now let's instruct the gateway over the HTTP headers to rewrite to httpbin.org and strip of /foo
 
