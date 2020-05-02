@@ -28,6 +28,10 @@ public class SpaApplication {
 	public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
 		//@formatter:off
 		return builder.routes()
+				// https://dzone.com/articles/spring-cloud-gateway-configuring-a-simple-route
+				.route("java_route", r -> r.path("/java/**")
+						.filters(f -> f.stripPrefix(1))
+						.uri("http://httpbin.org/"))
 				.route("path_route", r -> r.path("/get")
 						.uri("http://httpbin.org"))
 				.route("host_route", r -> r.host("*.myhost.org")
