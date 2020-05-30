@@ -55,7 +55,7 @@ public class SpaApplication {
 		
 		try {
 			// compose new forwardable URL to down-stream service
-			URI uri = UriComponentsBuilder.fromUri(new URI(partyServiceUrl)).path(request.getRequestURI()).query(request.getQueryString()).build(true).toUri();
+			URI uri = UriComponentsBuilder.fromUri(new URI(httpbinUrl)).path(request.getRequestURI()).query(request.getQueryString()).build(true).toUri();
 			
 			HttpHeaders headers = new HttpHeaders();
 
