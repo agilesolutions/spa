@@ -34,8 +34,8 @@ import org.springframework.web.util.UriComponentsBuilder;
 @SpringBootApplication
 public class SpaApplication {
 	
-	@Value("${app.services.party-service.url:https://mycomp.com/api/party/getall}")
-	private String partyServiceUrl;
+	@Value("${app.services.httpbin.url:https://httpbin.org/status}")
+	private String httpbinUrl;
 	
 
 	@RequestMapping("/hystrixfallback")
@@ -44,10 +44,10 @@ public class SpaApplication {
 	}
 	
 	/**
-	 * All party traffic goes here, make your own gateway here if you can not deal with webflux
+	 * All httpbin traffic goes here, make your own gateway here if you can not deal with webflux
 	 * 
 	 */
-	@RequestMapping(value = { "/party/**" }, method = { RequestMethod.GET, RequestMethod.PUT, RequestMethod.POST })
+	@RequestMapping(value = { "/status/**" }, method = { RequestMethod.GET, RequestMethod.PUT, RequestMethod.POST })
 	public ResponseEntity<?> partyRequests(@RequestBody(required = false) String body, HttpMethod method,
 			HttpServletRequest request, HttpServletResponse response) {
 		
